@@ -13,7 +13,7 @@ FIXED=$(if [[ "$4" = "fixed" ]] ; then echo "-w" ; else echo "" ; fi)
 SECTIONS=$(seq $FIXED 1 "$N_SECTIONS")
 
 for section in $SECTIONS; do
-  sox -G --norm -t mp3 "$PREFIX$section.mp3" "$SHORTNAME-$section.wav" remix 1
+  sox -G --norm -t mp3 "$PREFIX$section.mp3" -c 1 "$SHORTNAME-$section.wav"
 done
 
 sox $(for section in $SECTIONS; do
